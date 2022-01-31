@@ -890,6 +890,9 @@ if __name__ == '__main__':
         process = subprocess.Popen(sys.argv[1], stdout=subprocess.PIPE, stdin=subprocess.PIPE, close_fds = True, bufsize = 1)
     except:
         logger.info('Wait for process to start')
+        protocol.write("{\msg\":\"Waiting 5 seconds for the server to start.\"}\r\n".encode('utf-8'))
+        time.sleep(5)
+        switchFunction("online_classifier","")
         pass
         # Try to start the default function set by the user
         # try:
