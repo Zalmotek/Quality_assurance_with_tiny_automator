@@ -5,7 +5,7 @@
       "name": "condition",
       "version": "1.1.6",
       "properties": {
-        "condition": "${nodes.stream_1.rawData.stream.value}>1"
+        "condition": "${nodes.stream_1.rawData.stream.value}>0"
       },
       "resource": "test-topic",
       "position": [
@@ -51,7 +51,7 @@
       "properties": {
         "server": "192.168.0.161",
         "port": 1883,
-        "message": "1",
+        "message": "2",
         "topic": "inTopic",
         "protocol": "mqtt"
       },
@@ -80,17 +80,17 @@
   ],
   "triggers": [
     {
-      "sourceLabel": "sendMQTTmessage_1",
-      "destinationLabel": "debugDialog_2",
-      "statesTrigger": [
-        "Success"
-      ]
-    },
-    {
       "sourceLabel": "condition_1",
       "destinationLabel": "sendMQTTmessage_1",
       "statesTrigger": [
         "True"
+      ]
+    },
+    {
+      "sourceLabel": "sendMQTTmessage_1",
+      "destinationLabel": "debugDialog_2",
+      "statesTrigger": [
+        "Success"
       ]
     },
     {
@@ -105,10 +105,10 @@
       ]
     }
   ],
-  "name": "QA_Example",
+  "name": "ActuatorExample_Mqtt10",
   "user": "test@waylay.io",
-  "createTime": 1643285992633,
-  "lastUpdateTime": 1643285992633,
+  "createTime": 1643275070395,
+  "lastUpdateTime": 1643624919761,
   "discoveryTemplate": false,
   "taskDefaults": {
     "type": "reactive",
